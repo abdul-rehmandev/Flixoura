@@ -1,4 +1,4 @@
-import User from '@/lib/models/user.model';
+//import User from '@/lib/models/user.model';
 import { verifyWebhook } from '@clerk/nextjs/webhooks'
 import { NextRequest } from 'next/server'
 
@@ -9,19 +9,21 @@ export async function POST(req: NextRequest) {
         if (evt.type === 'user.created') {
             const { first_name, last_name, image_url, email_addresses, id } = evt?.data;
 
-            const existingUser = await User.findOne({ email: email_addresses });
+            console.log(first_name, last_name, image_url, email_addresses, id)
 
-            if (!existingUser) {
-                const newUser = new User({
-                    clerkId: id,
-                    email: email_addresses,
-                    firstName: first_name,
-                    lastName: last_name,
-                    profilePictue: image_url
-                });
+            // const existingUser = await User.findOne({ email: email_addresses });
 
-                await newUser.save();
-            }
+            // if (!existingUser) {
+            //     const newUser = new User({
+            //         clerkId: id,
+            //         email: email_addresses,
+            //         firstName: first_name,
+            //         lastName: last_name,
+            //         profilePictue: image_url
+            //     });
+
+            //     await newUser.save();
+            // }
         }
 
         return new Response('Webhook received', { status: 200 })
