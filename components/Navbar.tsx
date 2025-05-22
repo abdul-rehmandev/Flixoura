@@ -12,7 +12,7 @@ const Navbar = () => {
     return (
         <div className='container flex justify-between items-center border-2 border-black rounded-full'>
             <Link href="/" className="left flex gap-1 justify-center items-center">
-                <Image src="/Images/flixoura_logo.png" alt="logo" width={40} height={40} />
+                <Image src="/Images/Flixoura_logo.png" alt="logo" width={40} height={40} />
                 <p className='text-2xl font-bold'>Flixoura</p>
             </Link>
             <div className="right flex gap-4 justify-center items-center text-muted-foreground">
