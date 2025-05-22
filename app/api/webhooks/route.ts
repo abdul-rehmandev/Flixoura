@@ -1,6 +1,7 @@
 import User from '@/lib/models/user.model';
 import { verifyWebhook } from '@clerk/nextjs/webhooks'
-import { NextRequest } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
+import { clerkClient } from "@clerk/nextjs/server";
 
 export async function POST(req: NextRequest) {
     try {
@@ -20,7 +21,17 @@ export async function POST(req: NextRequest) {
                     profilePictue: image_url
                 });
 
+                if (newUser) {
+                    await (await clerkClient()).users.updateUserMetadata(id, {
+                        publicMetadata: {
+                            userId: newUser._id,
+                        },
+                    });
+                }
+
                 await newUser.save();
+
+                return NextResponse.json({ message: "OK", user: newUser });
             }
         }
 
