@@ -1,10 +1,10 @@
 "use client"
-
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { Button } from "@/components/ui/button"
 import { usePathname } from 'next/navigation'
+import { SignedIn, UserButton, SignedOut } from '@clerk/nextjs'
 
 const Navbar = () => {
     const pathname = usePathname()
@@ -34,7 +34,14 @@ const Navbar = () => {
                 >
                     Contact
                 </Link>
-                <Button className='cursor-pointer'>Sign In</Button>
+                <SignedIn>
+                    <UserButton />
+                </SignedIn>
+                <SignedOut>
+                    <Link href="/sign-in">
+                        <Button className='cursor-pointer'>Sign In</Button>
+                    </Link>
+                </SignedOut>
             </div>
         </div>
     )
