@@ -1,8 +1,8 @@
 import User from '@/lib/models/user.model';
 import { verifyWebhook } from '@clerk/nextjs/webhooks'
-import { NextRequest, NextResponse } from 'next/server'
+import { NextRequest } from 'next/server'
 
-export async function POST(req: NextRequest, res: NextResponse) {
+export async function POST(req: NextRequest) {
     try {
         const evt = await verifyWebhook(req)
 
@@ -21,9 +21,6 @@ export async function POST(req: NextRequest, res: NextResponse) {
                 });
 
                 await newUser.save();
-            }
-            else {
-                return NextResponse.json({ message: "Existing User SignedIn Successfully" })
             }
         }
 
