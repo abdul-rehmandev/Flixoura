@@ -9,7 +9,7 @@ export async function POST(req: NextRequest) {
         if (evt.type === 'user.created') {
             const { first_name, last_name, image_url, email_addresses, id } = evt?.data;
 
-            const existingUser = await User.findOne({ email: email_addresses });
+            const existingUser = await User.findOne({ email: email_addresses[0].email_address });
 
             if (!existingUser) {
                 const newUser = new User({
