@@ -10,9 +10,9 @@ const Navbar = () => {
     const pathname = usePathname()
 
     return (
-        <div className='container flex justify-between items-center py-2 mt-2 border-2 border-black rounded-full'>
+        <div className='container flex justify-between items-center border-2 border-black rounded-full'>
             <Link href="/" className="left flex gap-1 justify-center items-center">
-                <Image src="/Images/flixoura_logo.png" alt="logo" width={50} height={50} />
+                <Image src="/Images/flixoura_logo.png" alt="logo" width={40} height={40} />
                 <p className='text-2xl font-bold'>Flixoura</p>
             </Link>
             <div className="right flex gap-4 justify-center items-center text-muted-foreground">
@@ -26,7 +26,7 @@ const Navbar = () => {
                     href="/about"
                     className={`transition-colors duration-300 hover:text-black ${pathname === '/about' ? 'text-black' : ''}`}
                 >
-                    About
+                    Explore
                 </Link>
                 <Link
                     href="/contact"
@@ -34,7 +34,7 @@ const Navbar = () => {
                 >
                     Contact
                 </Link>
-                <Button className='w-24 cursor-pointer'>Sign In</Button>
+                <Button className='cursor-pointer'>Sign In</Button>
             </div>
         </div>
     )

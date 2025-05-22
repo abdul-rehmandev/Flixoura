@@ -124,16 +124,11 @@
   }
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
 .container {
-  max-width: 1600px;
+  max-width: 1400px;
   margin: 2px auto;
-  padding: 0 1rem;
+  padding: 4px 1rem;
   width: 100%;
   box-sizing: border-box;
 }
