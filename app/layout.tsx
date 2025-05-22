@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import {
   ClerkProvider
 } from '@clerk/nextjs'
+import NextTopLoader from 'nextjs-toploader';
 
 const inter = Inter({
   weight: "400",
@@ -27,6 +28,7 @@ export default function RootLayout({
         <body
           className={`${inter.className} antialiased`}
         >
+          <NextTopLoader color="#000" height={2} showSpinner={false} />
           <Navbar />
           {children}
         </body>
