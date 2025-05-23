@@ -14,4 +14,5 @@ interface ResultTypes {
     first_air_date: string;
     vote_average: any;
     poster_path: string;
+    backdrop_path: string;
 }

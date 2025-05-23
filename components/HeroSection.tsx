@@ -11,9 +11,9 @@ const HeroSection = async () => {
     }
 
     const results = data.results;
-    const images = [...results.map((result: any) =>
+    const images = [...results.map((result: ResultTypes) =>
         result.poster_path ? `https://image.tmdb.org/t/p/w500${result.poster_path}` : '/placeholder-image.jpg'
-    ), ...results.map((result: any) =>
+    ), ...results.map((result: ResultTypes) =>
         result.backdrop_path ? `https://image.tmdb.org/t/p/w500${result.backdrop_path}` : '/placeholder-image.jpg'
     )];
 
