@@ -11,7 +11,7 @@ import Card from './Card'
 
 const AllData = async () => {
 
-    const res = await fetch(`https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.TMDB_APAI_KEY}&language=en-US`);
+    const res = await fetch(`https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.TMDB_API_KEY}&language=en-US`);
 
     const data = await res.json();
     if (!res.ok) {

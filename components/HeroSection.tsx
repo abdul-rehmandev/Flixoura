@@ -3,7 +3,7 @@ import { ThreeDMarquee } from "@/components/ui/3d-marquee";
 import { Button } from "@/components/ui/button"
 
 const HeroSection = async () => {
-    const res = await fetch(`https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.TMDB_APAI_KEY}&language=en-US`);
+    const res = await fetch(`https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.TMDB_API_KEY}&language=en-US`);
     const data = await res.json();
 
     if (!res.ok) {
