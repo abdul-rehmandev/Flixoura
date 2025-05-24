@@ -16,3 +16,18 @@ interface ResultTypes {
     poster_path: string;
     backdrop_path: string;
 }
+
+interface detailTypes {
+    genres: Array<{
+        name: string
+    }>,
+    original_title: string
+    overview: string
+    release_date: string
+    runtime: number
+    status: string
+    tagline: string
+    vote_average: any
+    backdrop_path: string
+    poster_path: string
+}
