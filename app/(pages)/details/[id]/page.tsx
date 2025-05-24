@@ -2,8 +2,16 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react'
 
-const Detail = async ({ params }: { params: { id: string } }) => {
-    const { id: detailId } = await params;
+interface PageProps {
+    params: Promise<{
+        id: string;
+    }>;
+}
+
+const Detail = async (props: PageProps) => {
+    const params = await props.params;
+    // Ensure params is properly awaited
+    const detailId = await Promise.resolve(params?.id);
 
     const res = await fetch(`https://api.themoviedb.org/3/movie/${detailId}?api_key=${process.env.TMDB_API_KEY}`);
 
