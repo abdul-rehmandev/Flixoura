@@ -25,7 +25,7 @@ export async function CastDetails({ movieId }: CastDetailsProps) {
         `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${process.env.TMDB_API_KEY}`
     );
     const data = await res.json();
-    const cast = data.cast.slice(0, 10);
+    const cast = data.cast?.slice(0, 10);
 
     return (
         <Carousel
@@ -35,7 +35,7 @@ export async function CastDetails({ movieId }: CastDetailsProps) {
             className="w-[90%]"
         >
             <CarouselContent>
-                {cast.map((member: CastMember, index: number) => (
+                {cast?.map((member: CastMember, index: number) => (
                     <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                         <div className="p-1">
                             <CardContent className="flex flex-col items-center p-4">

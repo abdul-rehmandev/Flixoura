@@ -37,8 +37,8 @@ const AllData = async () => {
     const trendingResults: ResultTypes[] = trendingData.results;
 
     const renderGenreSection = (title: string, movies: ResultTypes[]) => (
-        <div className="mt-10">
-            <h2 className='text-3xl font-extrabold'>{title}</h2>
+        <div className="mt-6 md:mt-10 px-4 md:px-6 lg:px-8">
+            <h2 className='text-2xl md:text-3xl font-extrabold mb-4'>{title}</h2>
             <Carousel
                 opts={{
                     align: "start",
@@ -47,23 +47,23 @@ const AllData = async () => {
             >
                 <CarouselContent>
                     {movies.slice(0, 10).map((result, index) => (
-                        <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/6">
+                        <CarouselItem key={index} className="basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/5 xl:basis-1/6">
                             <div className="p-1">
                                 <Card result={result} />
                             </div>
                         </CarouselItem>
                     ))}
                 </CarouselContent>
-                <CarouselPrevious />
-                <CarouselNext />
+                <CarouselPrevious className="hidden sm:flex" />
+                <CarouselNext className="hidden sm:flex" />
             </Carousel>
         </div>
     );
 
     return (
-        <div>
-            <div className="trending mt-5">
-                <h2 className='text-3xl font-extrabold'>Trending</h2>
+        <div className="w-full">
+            <div className="trending mt-6 md:mt-10 px-4 md:px-6 lg:px-8">
+                <h2 className='text-2xl md:text-3xl font-extrabold mb-4'>Trending</h2>
                 <Carousel
                     opts={{
                         align: "start",
@@ -72,15 +72,15 @@ const AllData = async () => {
                 >
                     <CarouselContent>
                         {trendingResults.slice(0, 10).map((result, index) => (
-                            <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/6">
+                            <CarouselItem key={index} className="basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/5 xl:basis-1/6">
                                 <div className="p-1">
                                     <Card result={result} />
                                 </div>
                             </CarouselItem>
                         ))}
                     </CarouselContent>
-                    <CarouselPrevious />
-                    <CarouselNext />
+                    <CarouselPrevious className="hidden sm:flex" />
+                    <CarouselNext className="hidden sm:flex" />
                 </Carousel>
             </div>
 

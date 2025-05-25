@@ -52,7 +52,7 @@ const Detail = async (props: PageProps) => {
                         <p className='mt-4 text-sm md:text-base text-gray-200'>{detail.overview}</p>
                         <h2 className='mt-2 text-sm md:text-base'>{detail.status} - {detail.release_date}</h2>
                         <div className='flex flex-wrap items-center gap-2 md:gap-3 mt-5'>
-                            {detail.genres.map((genre, index) => (
+                            {detail.genres?.map((genre, index) => (
                                 <p className='genre-tag text-sm md:text-base' key={index}>{genre.name}</p>
                             ))}
                         </div>
@@ -62,7 +62,7 @@ const Detail = async (props: PageProps) => {
                             <div className='bg-white/10 p-4 rounded-lg'>
                                 <h3 className='text-lg md:text-xl font-semibold mb-2'>Movie Statistics</h3>
                                 <p className='text-sm md:text-base'>Runtime: {detail.runtime} minutes</p>
-                                <p className='text-sm md:text-base'>Rating: {detail.vote_average.toFixed(1)}/10</p>
+                                <p className='text-sm md:text-base'>Rating: {detail.vote_average?.toFixed(1)}/10</p>
                                 {detail.budget > 0 && <p className='text-sm md:text-base'>Budget: ${detail.budget.toLocaleString()}</p>}
                                 {detail.revenue > 0 && <p className='text-sm md:text-base'>Revenue: ${detail.revenue.toLocaleString()}</p>}
                             </div>
