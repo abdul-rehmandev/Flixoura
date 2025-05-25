@@ -95,7 +95,7 @@ const Detail = async (props: PageProps) => {
                 <div className='mt-12 text-white'>
                     <h2 className='text-3xl mb-6'>Similar Movies</h2>
                     <div className='grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4'>
-                        {similarMovies.results?.slice(0, 6).map((movie: any) => (
+                        {similarMovies.results?.slice(0, 6).map((movie: ResultTypes) => (
                             <Link href={`/details/${movie.id}`} key={movie.id} className='group'>
                                 <div className='relative aspect-[2/3] rounded-lg overflow-hidden bg-gray-800'>
                                     <Image
