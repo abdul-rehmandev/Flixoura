@@ -27,7 +27,14 @@ interface detailTypes {
     runtime: number
     status: string
     tagline: string
-    vote_average: any
+    vote_average: number
     backdrop_path: string
     poster_path: string
+    budget: number
+    revenue: number
+    original_language: string
+    production_companies: Array<{
+        name: string
+        id: number
+    }>
 }

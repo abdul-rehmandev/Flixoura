@@ -6,50 +6,50 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 interface ResultTypes {
-    id: number;
-    title?: string;
-    name?: string;
-    release_date: string;
-    poster_path: string;
-    vote_average: number;
-    first_air_date?: string;
+  id: number;
+  title?: string;
+  name?: string;
+  release_date: string;
+  poster_path: string;
+  vote_average: number;
+  first_air_date?: string;
 }
 
 interface CardProps {
-    result: ResultTypes;
+  result: ResultTypes;
 }
 
 const Card = ({ result }: CardProps) => {
-    const title = result.title || result.name;
-    const truncatedTitle = title ? (title.length > 20 ? `${title.substring(0, 20)}...` : title) : '';
-    const imageUrl = result.poster_path
-        ? `https://image.tmdb.org/t/p/w500${result.poster_path}`
-        : '/placeholder-image.jpg';
+  const title = result.title || result.name;
+  const truncatedTitle = title ? (title.length > 20 ? `${title.substring(0, 20)}...` : title) : '';
+  const imageUrl = result.poster_path
+    ? `https://image.tmdb.org/t/p/w500${result.poster_path}`
+    : '/placeholder-image.jpg';
 
-    return (
-        <StyledWrapper>
-            <div className="card">
-                <div className="wrapper">
-                    <div className="card-image">
-                        <Image
-                            src={imageUrl}
-                            alt={title || 'Movie/Show poster'}
-                            width={120}
-                            height={120}
-                            style={{ objectFit: 'cover' }}
-                        />
-                    </div>
-                    <div className="content">
-                        <small className="title" title={title}>{truncatedTitle}</small>
-                    </div>
-                    <Link href={`details/${result.id}`} className='card-btn flex justify-center items-center'>
-                        View Details
-                    </Link>
-                </div>
-                <p className="tag">{result.release_date || result.first_air_date} - {result.vote_average.toFixed(1)}</p>
-            </div>
-        </StyledWrapper>
-    );
+  return (
+    <StyledWrapper>
+      <div className="card">
+        <div className="wrapper">
+          <div className="card-image">
+            <Image
+              src={imageUrl}
+              alt={title || 'Movie/Show poster'}
+              width={120}
+              height={120}
+              style={{ objectFit: 'cover', borderRadius: "5px" }}
+            />
+          </div>
+          <div className="content">
+            <small className="title" title={title}>{truncatedTitle}</small>
+          </div>
+          <Link href={`details/${result.id}`} className='card-btn flex justify-center items-center'>
+            View Details
+          </Link>
+        </div>
+        <p className="tag">{result.release_date || result.first_air_date} - {result.vote_average.toFixed(1)}</p>
+      </div>
+    </StyledWrapper>
+  );
 }
 
 const StyledWrapper = styled.div`
