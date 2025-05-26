@@ -5,8 +5,6 @@ import {
     Carousel,
     CarouselContent,
     CarouselItem,
-    CarouselNext,
-    CarouselPrevious,
 } from "@/components/ui/carousel"
 
 interface CastMember {
@@ -57,8 +55,6 @@ export async function CastDetails({ movieId }: CastDetailsProps) {
                     </CarouselItem>
                 ))}
             </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
         </Carousel>
     )
 }

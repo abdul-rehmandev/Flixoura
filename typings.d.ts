@@ -38,3 +38,14 @@ interface detailTypes {
         id: number
     }>
 }
+
+interface contactDetails {
+    firstName: string
+    lastName: string
+    email: string
+    message: string;
+}
+
+interface suggestionMessage {
+    suggestionMessage: string
+}
