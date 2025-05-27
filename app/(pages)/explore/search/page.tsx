@@ -2,12 +2,13 @@ import React from 'react'
 import Card from '@/components/Card'
 import Search from '@/components/Search'
 
-interface SearchPageProps {
-    searchParams: { q: string }
+interface PageProps {
+    searchParams: Promise<{ q: string }>
 }
 
-const SearchPage = async ({ searchParams }: SearchPageProps) => {
-    const query = searchParams.q
+const SearchPage = async ({ searchParams }: PageProps) => {
+    const params = await searchParams;
+    const query = params.q;
 
     const res = await fetch(
         `https://api.themoviedb.org/3/search/movie?api_key=${process.env.TMDB_API_KEY}&query=${encodeURIComponent(query)}&language=en-US`
