@@ -49,3 +49,9 @@ interface contactDetails {
 interface suggestionMessage {
     suggestionMessage: string
 }
+
+interface CategoryTypes {
+    category: {
+        name: string
+    }
+}

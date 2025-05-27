@@ -1,6 +1,7 @@
 import React from 'react'
 import { ThreeDMarquee } from "@/components/ui/3d-marquee";
 import { Button } from "@/components/ui/button"
+import Link from 'next/link';
 
 const HeroSection = async () => {
     const res = await fetch(`https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.TMDB_API_KEY}&language=en-US`);
@@ -25,8 +26,9 @@ const HeroSection = async () => {
             <div className='flex justify-center flex-col items-center mt-2 gap-2 px-4 sm:px-6 md:px-8'>
                 <p className='text-justify w-full max-w-[900px] text-sm sm:text-base md:text-lg'><strong>Flixoura</strong> is your ultimate destination to explore detailed information about movies, TV shows, web series, and streaming content. Whether you&apos;re a casual viewer or a binge-watching fanatic, Flixoura helps you find, track, and dive deeper into your favorite entertainment. Browse through cast & crew details, ratings, reviews, trailers, genres, release dates, and more all in one sleek and fast platform.Stay updated with the latest releases, trending titles, and must-watch recommendations curated just for you.</p>
                 <div className='flex flex-col sm:flex-row gap-2 w-full sm:w-auto'>
-                    <Button className='w-full sm:w-auto cursor-pointer' variant="outline">Search your favourite movie</Button>
-                    <Button className='w-full sm:w-auto cursor-pointer'>Explore Flixoura</Button>
+                    <Link href="/explore/All-Categories">
+                        <Button className='w-full sm:w-auto cursor-pointer'>Explore Flixoura</Button>
+                    </Link>
                 </div>
             </div>
         </>

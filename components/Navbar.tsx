@@ -31,7 +31,7 @@ const Navbar = () => {
                                 Home
                             </Link>
                             <Link
-                                href="/explore"
+                                href="/explore/All-Categories"
                                 className={`transition-colors duration-300 hover:text-black ${pathname === '/explore' ? 'text-black' : ''}`}
                             >
                                 Explore

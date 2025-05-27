@@ -6,6 +6,7 @@ import {
   ClerkProvider
 } from '@clerk/nextjs'
 import NextTopLoader from 'nextjs-toploader';
+import { Toaster } from "@/components/ui/sonner"
 
 const inter = Inter({
   weight: "400",
@@ -32,6 +33,7 @@ export default function RootLayout({
           <NextTopLoader color="#000" height={2} showSpinner={false} />
           <Navbar />
           {children}
+          <Toaster />
         </body>
       </html>
     </ClerkProvider>

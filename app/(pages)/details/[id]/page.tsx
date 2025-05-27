@@ -30,7 +30,7 @@ const Detail = async (props: PageProps) => {
             <div className='absolute inset-0 w-full h-full'>
                 <Image
                     src={backropImage}
-                    alt={detail.original_title}
+                    alt={detail.original_title || detail.overview}
                     fill
                     className='object-cover'
                     sizes="100vw"

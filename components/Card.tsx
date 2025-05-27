@@ -42,7 +42,7 @@ const Card = ({ result }: CardProps) => {
           <div className="content">
             <small className="title" title={title}>{truncatedTitle}</small>
           </div>
-          <Link href={`details/${result.id}`} className='card-btn flex justify-center items-center'>
+          <Link href={`/details/${result.id}`} className='card-btn flex justify-center items-center'>
             View Details
           </Link>
         </div>

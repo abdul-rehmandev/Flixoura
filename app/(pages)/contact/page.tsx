@@ -15,6 +15,7 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { contactUs, suggestion } from '@/actions/contact.actions'
 import { useUser } from "@clerk/nextjs"
+import { toast } from "sonner"
 
 const Contact = () => {
     const { user, isLoaded } = useUser();
@@ -35,6 +36,7 @@ const Contact = () => {
     }, [isLoaded, user])
 
     const contactQuery = async () => {
+        if (!firstName || !email || !message) return toast("All fields required")
         setIsContactLoading(true)
         const contactDetails = {
             firstName,
@@ -47,12 +49,13 @@ const Contact = () => {
 
         if (newQuery) {
             setIsContactLoading(false)
-            return console.log(newQuery)
+            return toast("Submitted Successfully")
         }
         setIsContactLoading(false)
     }
 
     const sendSuggestionMessage = async () => {
+        if (!suggestionMessage) return toast("Please write some suggestion before submit.")
         setIsSuggestionLoading(true)
         const suggestionM = {
             suggestionMessage
@@ -63,7 +66,7 @@ const Contact = () => {
         if (newSuggestion) {
             setSuggestionMessgae("")
             setIsSuggestionLoading(false)
-            return console.log(newSuggestion)
+            return toast("Submitted Successfully")
         }
         setIsSuggestionLoading(false)
     }
