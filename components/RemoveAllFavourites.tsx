@@ -22,7 +22,7 @@ const RemoveAllFavourites = ({ userEmail }: ThisTypes) => {
                 router.refresh()
             }
         } catch (error) {
-            toast.error("Failed to remove the favourite movies")
+            toast.error(`Failed to remove favorites: ${error instanceof Error ? error.message : 'Unknown error'}`);
         } finally {
             setIsLoading(false)
         }

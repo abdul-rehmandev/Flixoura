@@ -49,7 +49,7 @@ const AddToFavourites = ({ movieID }: PageProps) => {
                 }
             }
         } catch (error) {
-            toast.error("Failed to update favorites");
+            toast.error(`Failed to update favorites: ${error instanceof Error ? error.message : 'Unknown error'}`);
         }
     }
 
