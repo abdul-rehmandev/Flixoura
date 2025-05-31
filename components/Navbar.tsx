@@ -32,7 +32,7 @@ const Navbar = () => {
                             </Link>
                             <Link
                                 href="/explore/All-Categories"
-                                className={`transition-colors duration-300 hover:text-black ${pathname === '/explore' ? 'text-black' : ''}`}
+                                className={`transition-colors duration-300 hover:text-black ${pathname?.startsWith('/explore') ? 'text-black' : ''}`}
                             >
                                 Explore
                             </Link>
@@ -43,6 +43,12 @@ const Navbar = () => {
                                 Contact
                             </Link>
                             <SignedIn>
+                                <Link
+                                    href="/my-favourites"
+                                    className={`transition-colors duration-300 hover:text-black ${pathname === '/my-favourites' ? 'text-black' : ''}`}
+                                >
+                                    My Favourites
+                                </Link>
                                 <UserButton />
                             </SignedIn>
                             <SignedOut>
@@ -74,7 +80,7 @@ const Navbar = () => {
                                 </Link>
                                 <Link
                                     href="/explore"
-                                    className={`transition-colors duration-300 hover:text-black ${pathname === '/explore' ? 'text-black' : ''}`}
+                                    className={`transition-colors duration-300 hover:text-black ${pathname?.startsWith('/explore') ? 'text-black' : ''}`}
                                     onClick={() => setIsMobileMenuOpen(false)}
                                 >
                                     Explore
@@ -88,6 +94,13 @@ const Navbar = () => {
                                 </Link>
                                 <div className="flex items-center gap-2">
                                     <SignedIn>
+                                        <Link
+                                            href="/my-favourites"
+                                            className={`transition-colors duration-300 hover:text-black ${pathname === '/my-favourites' ? 'text-black' : ''}`}
+                                            onClick={() => setIsMobileMenuOpen(false)}
+                                        >
+                                            My Favourites
+                                        </Link>
                                         <UserButton />
                                     </SignedIn>
                                     <SignedOut>

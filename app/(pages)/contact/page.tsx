@@ -36,7 +36,7 @@ const Contact = () => {
     }, [isLoaded, user])
 
     const contactQuery = async () => {
-        if (!firstName || !email || !message) return toast("All fields required")
+        if (!firstName || !email || !message) return toast.error("All fields required")
         setIsContactLoading(true)
         const contactDetails = {
             firstName,
@@ -49,13 +49,13 @@ const Contact = () => {
 
         if (newQuery) {
             setIsContactLoading(false)
-            return toast("Submitted Successfully")
+            return toast.success("Submitted Successfully")
         }
         setIsContactLoading(false)
     }
 
     const sendSuggestionMessage = async () => {
-        if (!suggestionMessage) return toast("Please write some suggestion before submit.")
+        if (!suggestionMessage) return toast.error("Please write some suggestion before submit.")
         setIsSuggestionLoading(true)
         const suggestionM = {
             suggestionMessage
@@ -66,7 +66,7 @@ const Contact = () => {
         if (newSuggestion) {
             setSuggestionMessgae("")
             setIsSuggestionLoading(false)
-            return toast("Submitted Successfully")
+            return toast.success("Submitted Successfully")
         }
         setIsSuggestionLoading(false)
     }

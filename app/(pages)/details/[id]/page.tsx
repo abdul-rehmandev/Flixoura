@@ -1,3 +1,4 @@
+import AddToFavourites from '@/components/AddToFavourites';
 import { CastDetails } from '@/components/CastDetails';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -50,7 +51,10 @@ const Detail = async (props: PageProps) => {
                         </Link>
                         <h1 className='mt-5 text-4xl md:text-6xl lg:text-6xl xl:text-6xl font-bold'>{detail.original_title}</h1>
                         <p className='mt-4 text-sm md:text-base text-gray-200'>{detail.overview}</p>
-                        <h2 className='mt-2 text-sm md:text-base'>{detail.status} - {detail.release_date}</h2>
+                        <div className='flex justify-between items-center'>
+                            <h2 className='mt-2 text-sm md:text-base'>{detail.status} - {detail.release_date}</h2>
+                            <span className='border-2 p-2 rounded-full'><AddToFavourites movieID={detailId} /></span>
+                        </div>
                         <div className='flex flex-wrap items-center gap-2 md:gap-3 mt-5'>
                             {detail.genres?.map((genre, index) => (
                                 <p className='genre-tag text-sm md:text-base' key={index}>{genre.name}</p>
